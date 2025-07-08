@@ -1,0 +1,151 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 52% 13%; /* #101f33 */
+    --foreground: 50 100% 70%; /* Yellow #FFD600 - for primary headings only */
+    --body-text: 210 40% 85%; /* Neutral text for body content */
+    --secondary-text: 210 40% 65%; /* Secondary text */
+
+    --card: 220 52% 13%; /* Glass effect base */
+    --card-foreground: 210 40% 85%; /* Body text on cards */
+
+    --popover: 220 52% 13%;
+    --popover-foreground: 210 40% 85%;
+
+    --primary: 50 100% 70%;
+    --primary-foreground: 220 52% 13%;
+
+    --secondary: 220 39% 20%;
+    --secondary-foreground: 210 40% 85%;
+
+    --muted: 220 39% 20%;
+    --muted-foreground: 210 40% 65%;
+
+    --accent: 220 39% 20%;
+    --accent-foreground: 50 100% 70%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 39% 25%;
+    --input: 220 39% 25%;
+    --ring: 50 100% 70%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 52% 13%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 50 100% 70%;
+    --sidebar-primary-foreground: 220 52% 13%;
+    --sidebar-accent: 220 39% 20%;
+    --sidebar-accent-foreground: 210 40% 85%;
+    --sidebar-border: 220 39% 25%;
+    --sidebar-ring: 50 100% 70%;
+
+    /* Section-specific themes */
+    --learn-primary: 217 91% 60%; /* Blue */
+    --learn-secondary: 213 94% 68%; /* Light blue */
+    --practice-primary: 142 76% 36%; /* Green */
+    --practice-secondary: 141 69% 58%; /* Light green */
+    --community-primary: 271 81% 56%; /* Purple */
+    --community-secondary: 314 100% 86%; /* Pink */
+    --profile-primary: 45 93% 58%; /* Gold */
+    --profile-secondary: 174 72% 56%; /* Teal */
+  }
+
+  .dark {
+    --background: 220 52% 13%; /* #101f33 */
+    --foreground: 50 100% 70%; /* Yellow #FFD600 - for primary headings only */
+    --body-text: 210 40% 85%; /* Neutral text for body content */
+    --secondary-text: 210 40% 65%; /* Secondary text */
+
+    --card: 220 52% 13%; /* Glass effect base */
+    --card-foreground: 210 40% 85%; /* Body text on cards */
+
+    --popover: 220 52% 13%;
+    --popover-foreground: 210 40% 85%;
+
+    --primary: 50 100% 70%;
+    --primary-foreground: 220 52% 13%;
+
+    --secondary: 220 39% 20%;
+    --secondary-foreground: 210 40% 85%;
+
+    --muted: 220 39% 20%;
+    --muted-foreground: 210 40% 65%;
+
+    --accent: 220 39% 20%;
+    --accent-foreground: 50 100% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 39% 25%;
+    --input: 220 39% 25%;
+    --ring: 50 100% 70%;
+    --sidebar-background: 220 52% 13%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 50 100% 70%;
+    --sidebar-primary-foreground: 220 52% 13%;
+    --sidebar-accent: 220 39% 20%;
+    --sidebar-accent-foreground: 210 40% 85%;
+    --sidebar-border: 220 39% 25%;
+    --sidebar-ring: 50 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-body-text;
+  }
+}
+
+/* Glass morphism effect for cards */
+@layer components {
+  .glass-card {
+    background: rgba(16, 31, 51, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 214, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Section-specific text themes */
+  .learn-theme {
+    --section-primary: var(--learn-primary);
+    --section-secondary: var(--learn-secondary);
+  }
+
+  .practice-theme {
+    --section-primary: var(--practice-primary);
+    --section-secondary: var(--practice-secondary);
+  }
+
+  .community-theme {
+    --section-primary: var(--community-primary);
+    --section-secondary: var(--community-secondary);
+  }
+
+  .profile-theme {
+    --section-primary: var(--profile-primary);
+    --section-secondary: var(--profile-secondary);
+  }
+
+  .section-gradient {
+    background: linear-gradient(135deg, hsl(var(--section-primary)), hsl(var(--section-secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
